@@ -1,0 +1,21 @@
+{
+  "id" : "c6f2b998-ff7f-4356-8862-9e04dea699e2",
+  "request" : {
+    "url" : "/my-service/api/2/root/email",
+    "method" : "PUT",
+    "headers" : {
+      "Content-Type" : {
+        "matches" : "application/json.*"
+      }
+    },
+    "bodyPatterns" : [ {
+      "matchesJsonPath" : "$[?(@.['email'] == 'duplicate-email@test.com')]"
+    } ]
+  },
+  "response" : {
+    "status" : 400,
+    "body" : "{\"path\":\"/my-service/api/2/root/email\",\"error\":\"Bad Request\",\"message\":\"Validation failed for object='updateEmail'. Error count: 1\",\"errors\":[{\"codes\":[\"Duplicate\"],\"bindingFailure\":false,\"code\":\"Duplicate\",\"field\":\"email\",\"objectName\":\"updateEmail\"}],\"timestamp\":\"2018-05-01T10:30:00.000+0000\",\"status\":400}",
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "c6f2b998-ff7f-4356-8862-9e04dea699e2"
+}

@@ -1,0 +1,20 @@
+{
+  "id" : "a8790f55-3b87-4dc1-af6a-57a76d8e772a",
+  "request" : {
+    "url" : "/my-service/api/2/root/email",
+    "method" : "PUT",
+    "headers" : {
+      "Content-Type" : {
+        "matches" : "application/json.*"
+      }
+    },
+    "bodyPatterns" : [ {
+      "matchesJsonPath" : "$[?(@.['email'] == 'updated-email@test.com')]"
+    } ]
+  },
+  "response" : {
+    "status" : 204,
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "a8790f55-3b87-4dc1-af6a-57a76d8e772a"
+}
